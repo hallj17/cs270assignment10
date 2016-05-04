@@ -1,0 +1,32 @@
+<h1><%= "#{@calendar.month} /#{@calendar.year}" %></h1>
+<table> 
+<tr>
+    <% Calendar.days_of_week.each do |day| %>
+        <th><%= day %> </th>
+        
+    <% end %> 
+</tr>
+
+<tr>
+    <% @calendar.weeks.each do |week| %>
+        <tr>
+        <% week.each do |day| %>
+            <% if day.month != @calendar.month %>
+            <td></td>
+                <% else %>
+            <td><%= day.mday %> 
+         <% @events.each do |event| %>
+        <%= link_to event.name, event %>
+        <% end %>
+        </td>
+                <% end %> 
+        <% end %> 
+       
+        </tr>
+     
+    <% end %>
+</tr>
+
+
+</table>
+
